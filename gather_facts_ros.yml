@@ -1,0 +1,16 @@
+---
+ - name: Gather some Facts
+   hosts: RB1
+   gather_facts: no
+
+
+   tasks: 
+    - name: Gather ROS Facts
+      community.routeros.facts:
+        gather_subset: all
+              
+
+    - name: View Facts
+      debug:
+        var: ansible_facts
+

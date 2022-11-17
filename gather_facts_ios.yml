@@ -1,0 +1,15 @@
+---
+ - name: Gather some Facts
+   hosts: IOS1
+   gather_facts: no
+
+
+   tasks: 
+    - name: Gather IOS Facts
+      cisco.ios.facts:
+              
+
+    - name: View Facts
+      debug:
+        var: ansible_facts
+

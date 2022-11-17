@@ -1,0 +1,17 @@
+---
+ - name: Gather some Facts
+   hosts: junos
+   gather_facts: no
+
+
+   tasks: 
+    - name: Gather IOS Facts
+      junipernetworks.junos.junos_facts:
+        
+
+    - name: View Facts
+      debug:
+        var: ansible_facts
+
+### NOTE: {"changed": false, "msg": "Negotiation failed: Signature verification (ssh-ed25519) failed."}  ERROR due to bug with paramiko possibble fix:
+#https://stackoverflow.com/questions/70565357/paramiko-authentication-fails-with-agreed-upon-rsa-sha2-512-pubkey-algorithm

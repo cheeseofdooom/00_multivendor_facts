@@ -1,0 +1,20 @@
+---
+ - name: Gather some Facts
+   hosts: live
+   gather_facts: no
+
+
+   tasks: 
+    - name: Gather IOS Facts
+      cisco.ios.facts:
+      when: ansible_network_os == 'ios'
+    
+    - name: Gather IOS Facts
+      junipernetworks.junos.junos_facts:
+      when: ansible_network_os == 'junipernetworks.junos.junos'    
+              
+
+    - name: View Facts
+      debug:
+        var: ansible_facts
+
